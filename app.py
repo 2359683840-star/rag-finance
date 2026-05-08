@@ -29,12 +29,17 @@ client = OpenAI(api_key=api_key, base_url=base_url)
 
 def ask(question):
     results = vectordb.similarity_search(question, k=5)
-    context = "\n\n".join([r.page_content for r in results])
+    context_parts = []
+    for i, r in enumerate(results):
+        source = r.metadata.get("source", "未知来源")
+        context_parts.append(f"[来源 {i+1}: {os.path.basename(source)}]\n{r.page_content}")
+    context = "\n\n".join(context_parts)
 
     prompt = f"""你是一位资深行业研究员。请基于以下资料，对问题进行全面、深入的分析。
 
 要求：
 - 分点阐述，每个观点附上数据支撑
+- 引用来源时用 [来源 X] 标注（资料开头已经标注了来源编号）
 - 如果资料中有多个机构的观点，要综合对比
 - 指出资料中提到的具体数据（增长率、市场份额等）
 - 如果资料信息不足以完整回答，说明"从现有资料看，还缺少XX方面的信息"
