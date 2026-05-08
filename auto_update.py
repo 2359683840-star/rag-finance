@@ -1,208 +1,104 @@
 """
-自动搜索研报 → 下载 → 去重 → 追加到向量库
+自动更新：从 akshare 获取研报元数据并入库
 """
-import os
-import json
-import time
-import requests
+import os, json, time
 from datetime import datetime
 
-os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
 os.environ["TRANSFORMERS_NO_TF"] = "1"
 
-from langchain_community.document_loaders import PDFPlumberLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
+from langchain.schema import Document
 
 FAISS_DIR = "./faiss_db"
-REPORTS_DIR = "./reports"
-RECORD_FILE = "./download_record.json"
+RECORD_FILE = "./metadata_record.json"
 META_FILE = "./reports_meta.json"
 
 STOCKS = [
     {"code": "300750", "name": "宁德时代"}, {"code": "002594", "name": "比亚迪"},
     {"code": "300014", "name": "亿纬锂能"}, {"code": "002074", "name": "国轩高科"},
-    {"code": "300450", "name": "先导智能"}, {"code": "300568", "name": "星源材质"},
-    {"code": "002709", "name": "天赐材料"}, {"code": "300073", "name": "当升科技"},
-    {"code": "603659", "name": "璞泰来"}, {"code": "300769", "name": "德方纳米"},
+    {"code": "002709", "name": "天赐材料"}, {"code": "300568", "name": "星源材质"},
+    {"code": "002460", "name": "赣锋锂业"}, {"code": "002466", "name": "天齐锂业"},
+    {"code": "300073", "name": "当升科技"}, {"code": "603659", "name": "璞泰来"},
+    {"code": "601012", "name": "隆基绿能"}, {"code": "688599", "name": "天合光能"},
+    {"code": "600438", "name": "通威股份"}, {"code": "300274", "name": "阳光电源"},
+    {"code": "600406", "name": "国电南瑞"}, {"code": "601877", "name": "正泰电器"},
 ]
-
-# ─── 元数据管理 ───
-def load_meta():
-    if os.path.exists(META_FILE):
-        with open(META_FILE, "r", encoding="utf-8") as f:
-            return json.load(f)
-    return {}
-
-def save_meta(meta):
-    with open(META_FILE, "w", encoding="utf-8") as f:
-        json.dump(meta, f, ensure_ascii=False, indent=2)
 
 def load_record():
     if os.path.exists(RECORD_FILE):
-        with open(RECORD_FILE, "r", encoding="utf-8") as f:
+        with open(RECORD_FILE, "r") as f:
             return json.load(f)
-    return {"downloaded_pdfs": [], "last_run": None, "total": 0}
+    return {"seen": []}
 
-def save_record(record):
-    record["last_run"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    with open(RECORD_FILE, "w", encoding="utf-8") as f:
-        json.dump(record, f, ensure_ascii=False, indent=2, default=str)
+def save_record(r):
+    with open(RECORD_FILE, "w") as f:
+        json.dump(r, f)
 
-# ─── 步骤1：搜索新研报 ───
-def fetch_new_reports():
+def fetch_metadata():
     import akshare as ak
     record = load_record()
-    downloaded_urls = set(record.get("downloaded_pdfs", []))
-    new_reports = []
+    seen = set(record["seen"])
+    new_docs = []
 
     for stock in STOCKS:
-        print(f"  搜索 {stock['name']}({stock['code']})...", end=" ")
+        print(f"  {stock['name']}({stock['code']})...", end=" ")
         try:
             df = ak.stock_research_report_em(symbol=stock["code"])
             count = 0
             for _, row in df.iterrows():
-                pdf_url = str(row.iloc[-1])
-                if pdf_url not in downloaded_urls:
-                    new_reports.append({
-                        "stock_name": stock["name"],
-                        "stock_code": stock["code"],
-                        "title": str(row.iloc[2]),
-                        "org": str(row.iloc[4]),
-                        "date": str(row.iloc[-3]),
-                        "pdf_url": pdf_url,
-                    })
-                    count += 1
-            print(f"新增 {count} 篇")
+                url = str(row.iloc[-1])
+                if url in seen:
+                    continue
+                title = str(row.iloc[2])
+                org = str(row.iloc[4])
+                rating = str(row.iloc[3])
+                industry = str(row.iloc[13])
+                date = str(row.iloc[-3])
+                text = f"机构：{org} | 股票：{stock['name']} | 评级：{rating}\n"
+                text += f"标题：{title}\n行业：{industry} | 日期：{date}\n"
+                # 盈利预测（第7-12列）
+                for i in range(7, 13):
+                    val = row.iloc[i]
+                    if val and str(val) != "nan":
+                        text += f"{df.columns[i]}：{val} "
+                doc = Document(
+                    page_content=text,
+                    metadata={"org": org, "stock": stock["name"], "title": title[:50], "date": date}
+                )
+                new_docs.append(doc)
+                seen.add(url)
+                count += 1
+            print(f"{count} 条新")
             time.sleep(1)
         except Exception as e:
             print(f"失败: {e}")
 
-    return new_reports
+    record["seen"] = list(seen)
+    save_record(record)
+    return new_docs
 
-# ─── 步骤2：下载PDF并保存元数据 ───
-def download_pdfs(reports):
-    if not os.path.exists(REPORTS_DIR):
-        os.makedirs(REPORTS_DIR)
-
-    meta = load_meta()
-    downloaded = []
-    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
-
-    for rpt in reports:
-        filename = f"{rpt['date']}_{rpt['stock_code']}_{rpt['org']}.pdf"
-        filename = "".join(c if c.isalnum() or c in "._-" else "_" for c in filename)
-        filepath = os.path.join(REPORTS_DIR, filename)
-
-        if os.path.exists(filepath):
-            downloaded.append(rpt["pdf_url"])
-            # 已有文件但没元数据，补上
-            if filename not in meta:
-                meta[filename] = {
-                    "org": rpt["org"],
-                    "title": rpt["title"][:60],
-                    "stock": rpt["stock_name"],
-                    "date": rpt["date"]
-                }
-            continue
-
-        print(f"  下载: {rpt['org']} - {rpt['title'][:25]}...", end=" ")
-        try:
-            resp = requests.get(rpt["pdf_url"], headers=headers, timeout=30)
-            if resp.status_code == 200:
-                with open(filepath, "wb") as f:
-                    f.write(resp.content)
-                # 保存元数据
-                meta[filename] = {
-                    "org": rpt["org"],
-                    "title": rpt["title"][:60],
-                    "stock": rpt["stock_name"],
-                    "date": rpt["date"]
-                }
-                downloaded.append(rpt["pdf_url"])
-                print("✓")
-            else:
-                print(f"HTTP {resp.status_code}")
-        except Exception as e:
-            print(f"异常: {e}")
-
-    save_meta(meta)
-    return downloaded
-
-# ─── 步骤3：入库（带元数据） ───
-def add_new_pdfs(downloaded_urls):
-    if not downloaded_urls:
-        print("没有新PDF需要入库")
+def add_to_vector_db(docs):
+    if not docs:
+        print("没有新数据")
         return
-
-    meta = load_meta()
-
-    pdf_files = [f for f in os.listdir(REPORTS_DIR) if f.lower().endswith('.pdf')]
-    print(f"  解析 {len(pdf_files)} 份PDF...")
-
-    all_docs = []
-    for fname in pdf_files:
-        fpath = os.path.join(REPORTS_DIR, fname)
-        try:
-            loader = PDFPlumberLoader(fpath)
-            docs = loader.load()
-            # 附加上证券机构和报告标题
-            info = meta.get(fname, {})
-            for doc in docs:
-                doc.metadata["org"] = info.get("org", "")
-                doc.metadata["report_title"] = info.get("title", "")
-                doc.metadata["stock"] = info.get("stock", "")
-            all_docs.extend(docs)
-        except Exception as e:
-            print(f"  ✗ {fname} 解析失败: {e}")
-
-    if not all_docs:
-        return
-
-    splitter = RecursiveCharacterTextSplitter(
-        chunk_size=1000, chunk_overlap=200,
-        separators=["\n\n", "\n", "。", "，", " "]
-    )
-    chunks = splitter.split_documents(all_docs)
-    print(f"  切分成 {len(chunks)} 个片段")
-
-    print("  追加到向量库...")
+    splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+    chunks = splitter.split_documents(docs)
+    print(f"切分成 {len(chunks)} 个片段")
     embedding = HuggingFaceEmbeddings(model_name="shibing624/text2vec-base-chinese")
-    vectordb = FAISS.load_local(FAISS_DIR, embedding, allow_dangerous_deserialization=True)
-    vectordb.add_documents(chunks)
-    vectordb.save_local(FAISS_DIR)
-    print(f"  ✓ 入库完成，新增 {len(downloaded_urls)} 篇")
+    if os.path.exists(os.path.join(FAISS_DIR, "index.faiss")):
+        db = FAISS.load_local(FAISS_DIR, embedding, allow_dangerous_deserialization=True)
+        db.add_documents(chunks)
+    else:
+        db = FAISS.from_documents(documents=chunks, embedding=embedding)
+    db.save_local(FAISS_DIR)
+    print(f"入库完成，新增 {len(docs)} 条")
 
-# ─── 主流程 ───
 def run():
-    print("=" * 50)
-    print(f"  研报自动更新 ｜ {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print("=" * 50)
-
-    print("\n▶ 步骤1：搜索新研报")
-    new_reports = fetch_new_reports()
-    print(f"\n  共发现 {len(new_reports)} 篇新研报")
-    if not new_reports:
-        print("  没有新研报，跳过")
-        return
-
-    print("\n▶ 步骤2：下载PDF")
-    downloaded = download_pdfs(new_reports)
-
-    if downloaded:
-        record = load_record()
-        record["downloaded_pdfs"].extend(downloaded)
-        record["total"] = len(record["downloaded_pdfs"])
-        save_record(record)
-
-    print(f"\n▶ 步骤3：追加到向量库")
-    add_new_pdfs(downloaded)
-
-    print(f"\n{'=' * 50}")
-    print(f"  完成！本次新增 {len(downloaded)} 篇研报")
-    print(f"  累计已收录 {load_record()['total']} 篇")
-    print(f"{'=' * 50}")
+    print(f"研报元数据自动更新 ｜ {datetime.now()}")
+    docs = fetch_metadata()
+    add_to_vector_db(docs)
 
 if __name__ == "__main__":
     run()
