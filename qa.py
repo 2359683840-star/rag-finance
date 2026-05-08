@@ -29,8 +29,14 @@ def ask(question):
     results = vectordb.similarity_search(question, k=5)
     context_parts = []
     for i, r in enumerate(results):
-        source = r.metadata.get("source", "未知来源")
-        context_parts.append(f"[来源: {os.path.basename(source)}]\n{r.page_content}")
+        org = r.metadata.get("org", "")
+        title = r.metadata.get("report_title", "")
+        if org and title:
+            label = f"{org} - {title}"
+        else:
+            source = r.metadata.get("source", "未知来源")
+            label = os.path.basename(source)
+        context_parts.append(f"[来源: {label}]\n{r.page_content}")
     context = "\n\n".join(context_parts)
 
     prompt = f"""你是一位资深行业研究员。请基于以下资料，对问题进行全面、深入的分析。

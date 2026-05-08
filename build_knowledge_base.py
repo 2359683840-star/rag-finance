@@ -2,6 +2,7 @@
 读取研报PDF → 切分 → 向量化 → 存入向量库
 """
 import os
+import json
 
 os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
 os.environ["TRANSFORMERS_NO_TF"] = "1"
@@ -13,6 +14,13 @@ from langchain_community.vectorstores import FAISS
 
 REPORTS_DIR = "./reports"
 FAISS_DIR = "./faiss_db"
+META_FILE = "./reports_meta.json"
+
+# 加载元数据
+meta = {}
+if os.path.exists(META_FILE):
+    with open(META_FILE, "r", encoding="utf-8") as f:
+        meta = json.load(f)
 
 # 1. 读取所有PDF
 if not os.path.exists(REPORTS_DIR):
@@ -32,6 +40,12 @@ for pdf_file in pdf_files:
     try:
         loader = PDFPlumberLoader(file_path)
         docs = loader.load()
+        # 附上元数据
+        info = meta.get(pdf_file, {})
+        for doc in docs:
+            doc.metadata["org"] = info.get("org", "")
+            doc.metadata["report_title"] = info.get("title", "")
+            doc.metadata["stock"] = info.get("stock", "")
         all_docs.extend(docs)
         print(f"  ✓ {pdf_file}")
     except Exception as e:
@@ -48,7 +62,7 @@ splitter = RecursiveCharacterTextSplitter(
 chunks = splitter.split_documents(all_docs)
 print(f"切分成 {len(chunks)} 个文本片段")
 
-# 3. 向量化 + 入库（FAISS，轻量无依赖问题）
+# 3. 向量化 + 入库
 print("正在加载Embedding模型并入库...")
 embedding = HuggingFaceEmbeddings(model_name="shibing624/text2vec-base-chinese")
 vectordb = FAISS.from_documents(documents=chunks, embedding=embedding)

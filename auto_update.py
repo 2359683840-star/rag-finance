@@ -5,7 +5,6 @@ import os
 import json
 import time
 import requests
-import hashlib
 from datetime import datetime
 
 os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
@@ -19,22 +18,27 @@ from langchain_community.vectorstores import FAISS
 FAISS_DIR = "./faiss_db"
 REPORTS_DIR = "./reports"
 RECORD_FILE = "./download_record.json"
+META_FILE = "./reports_meta.json"
 
-# ─── 要跟踪的锂电/新能源股票 ───
 STOCKS = [
-    {"code": "300750", "name": "宁德时代"},
-    {"code": "002594", "name": "比亚迪"},
-    {"code": "300014", "name": "亿纬锂能"},
-    {"code": "002074", "name": "国轩高科"},
-    {"code": "300450", "name": "先导智能"},
-    {"code": "300568", "name": "星源材质"},
-    {"code": "002709", "name": "天赐材料"},
-    {"code": "300073", "name": "当升科技"},
-    {"code": "603659", "name": "璞泰来"},
-    {"code": "300769", "name": "德方纳米"},
+    {"code": "300750", "name": "宁德时代"}, {"code": "002594", "name": "比亚迪"},
+    {"code": "300014", "name": "亿纬锂能"}, {"code": "002074", "name": "国轩高科"},
+    {"code": "300450", "name": "先导智能"}, {"code": "300568", "name": "星源材质"},
+    {"code": "002709", "name": "天赐材料"}, {"code": "300073", "name": "当升科技"},
+    {"code": "603659", "name": "璞泰来"}, {"code": "300769", "name": "德方纳米"},
 ]
 
-# ─── 记录管理 ───
+# ─── 元数据管理 ───
+def load_meta():
+    if os.path.exists(META_FILE):
+        with open(META_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+def save_meta(meta):
+    with open(META_FILE, "w", encoding="utf-8") as f:
+        json.dump(meta, f, ensure_ascii=False, indent=2)
+
 def load_record():
     if os.path.exists(RECORD_FILE):
         with open(RECORD_FILE, "r", encoding="utf-8") as f:
@@ -77,11 +81,12 @@ def fetch_new_reports():
 
     return new_reports
 
-# ─── 步骤2：下载PDF ───
+# ─── 步骤2：下载PDF并保存元数据 ───
 def download_pdfs(reports):
     if not os.path.exists(REPORTS_DIR):
         os.makedirs(REPORTS_DIR)
 
+    meta = load_meta()
     downloaded = []
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
 
@@ -92,14 +97,29 @@ def download_pdfs(reports):
 
         if os.path.exists(filepath):
             downloaded.append(rpt["pdf_url"])
+            # 已有文件但没元数据，补上
+            if filename not in meta:
+                meta[filename] = {
+                    "org": rpt["org"],
+                    "title": rpt["title"][:60],
+                    "stock": rpt["stock_name"],
+                    "date": rpt["date"]
+                }
             continue
 
-        print(f"  下载: {rpt['org']} - {rpt['title'][:20]}...", end=" ")
+        print(f"  下载: {rpt['org']} - {rpt['title'][:25]}...", end=" ")
         try:
             resp = requests.get(rpt["pdf_url"], headers=headers, timeout=30)
             if resp.status_code == 200:
                 with open(filepath, "wb") as f:
                     f.write(resp.content)
+                # 保存元数据
+                meta[filename] = {
+                    "org": rpt["org"],
+                    "title": rpt["title"][:60],
+                    "stock": rpt["stock_name"],
+                    "date": rpt["date"]
+                }
                 downloaded.append(rpt["pdf_url"])
                 print("✓")
             else:
@@ -107,34 +127,35 @@ def download_pdfs(reports):
         except Exception as e:
             print(f"异常: {e}")
 
+    save_meta(meta)
     return downloaded
 
-# ─── 步骤3：新入库 ───
+# ─── 步骤3：入库（带元数据） ───
 def add_new_pdfs(downloaded_urls):
     if not downloaded_urls:
         print("没有新PDF需要入库")
         return
 
-    # 找出新下载对应的文件
-    new_files = []
-    for fname in os.listdir(REPORTS_DIR):
-        if not fname.lower().endswith('.pdf'):
-            continue
-        fpath = os.path.join(REPORTS_DIR, fname)
-        new_files.append(fpath)
+    meta = load_meta()
 
-    if not new_files:
-        return
+    pdf_files = [f for f in os.listdir(REPORTS_DIR) if f.lower().endswith('.pdf')]
+    print(f"  解析 {len(pdf_files)} 份PDF...")
 
-    print(f"  解析 {len(new_files)} 份PDF...")
     all_docs = []
-    for fpath in new_files:
+    for fname in pdf_files:
+        fpath = os.path.join(REPORTS_DIR, fname)
         try:
             loader = PDFPlumberLoader(fpath)
             docs = loader.load()
+            # 附加上证券机构和报告标题
+            info = meta.get(fname, {})
+            for doc in docs:
+                doc.metadata["org"] = info.get("org", "")
+                doc.metadata["report_title"] = info.get("title", "")
+                doc.metadata["stock"] = info.get("stock", "")
             all_docs.extend(docs)
         except Exception as e:
-            print(f"  ✗ {os.path.basename(fpath)} 解析失败: {e}")
+            print(f"  ✗ {fname} 解析失败: {e}")
 
     if not all_docs:
         return
@@ -153,7 +174,6 @@ def add_new_pdfs(downloaded_urls):
     vectordb.save_local(FAISS_DIR)
     print(f"  ✓ 入库完成，新增 {len(downloaded_urls)} 篇")
 
-
 # ─── 主流程 ───
 def run():
     print("=" * 50)
@@ -163,7 +183,6 @@ def run():
     print("\n▶ 步骤1：搜索新研报")
     new_reports = fetch_new_reports()
     print(f"\n  共发现 {len(new_reports)} 篇新研报")
-
     if not new_reports:
         print("  没有新研报，跳过")
         return
@@ -184,7 +203,6 @@ def run():
     print(f"  完成！本次新增 {len(downloaded)} 篇研报")
     print(f"  累计已收录 {load_record()['total']} 篇")
     print(f"{'=' * 50}")
-
 
 if __name__ == "__main__":
     run()
