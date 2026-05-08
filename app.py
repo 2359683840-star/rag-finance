@@ -2,17 +2,16 @@
 Streamlit 可视化界面（兼容 Streamlit Cloud 部署）
 """
 import os
-
 os.environ["TRANSFORMERS_NO_TF"] = "1"
 
 import streamlit as st
 from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_community.vectorstores import Chroma
+from langchain_community.vectorstores import FAISS
 from openai import OpenAI
 
-CHROMA_DIR = "./chroma_db"
+FAISS_DIR = "./faiss_db"
 
-# 读取 API 配置（优先用 Streamlit Cloud Secrets）
+# API 配置（Streamlit Cloud Secrets 优先）
 api_key = st.secrets.get("DASHSCOPE_API_KEY") or os.getenv("DASHSCOPE_API_KEY")
 base_url = st.secrets.get("API_BASE_URL") or os.getenv("API_BASE_URL", "https://api.deepseek.com")
 model_name = st.secrets.get("LLM_MODEL") or os.getenv("LLM_MODEL", "deepseek-chat")
@@ -21,7 +20,7 @@ model_name = st.secrets.get("LLM_MODEL") or os.getenv("LLM_MODEL", "deepseek-cha
 @st.cache_resource
 def load_db():
     embedding = HuggingFaceEmbeddings(model_name="shibing624/text2vec-base-chinese")
-    return Chroma(persist_directory=CHROMA_DIR, embedding_function=embedding)
+    return FAISS.load_local(FAISS_DIR, embedding, allow_dangerous_deserialization=True)
 
 
 vectordb = load_db()
@@ -31,6 +30,7 @@ client = OpenAI(api_key=api_key, base_url=base_url)
 def ask(question):
     results = vectordb.similarity_search(question, k=5)
     context = "\n\n".join([r.page_content for r in results])
+
     prompt = f"""你是一位资深行业研究员。请基于以下资料，对问题进行全面、深入的分析。
 
 要求：
@@ -45,6 +45,7 @@ def ask(question):
 问题：{question}
 
 分析："""
+
     resp = client.chat.completions.create(
         model=model_name,
         messages=[{"role": "user", "content": prompt}]

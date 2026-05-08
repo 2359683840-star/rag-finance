@@ -2,6 +2,8 @@
 reports/
 # 下载记录跟本地路径有关，不传
 download_record.json
+# 旧的 chroma 向量库
+chroma_db/
 # Python 缓存
 __pycache__/
 *.pyc

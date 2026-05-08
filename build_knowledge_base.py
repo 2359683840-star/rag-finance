@@ -9,10 +9,10 @@ os.environ["TRANSFORMERS_NO_TF"] = "1"
 from langchain_community.document_loaders import PDFPlumberLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_community.vectorstores import Chroma
+from langchain_community.vectorstores import FAISS
 
 REPORTS_DIR = "./reports"
-CHROMA_DIR = "./chroma_db"
+FAISS_DIR = "./faiss_db"
 
 # 1. 读取所有PDF
 if not os.path.exists(REPORTS_DIR):
@@ -48,13 +48,9 @@ splitter = RecursiveCharacterTextSplitter(
 chunks = splitter.split_documents(all_docs)
 print(f"切分成 {len(chunks)} 个文本片段")
 
-# 3. 向量化 + 入库
+# 3. 向量化 + 入库（FAISS，轻量无依赖问题）
 print("正在加载Embedding模型并入库...")
 embedding = HuggingFaceEmbeddings(model_name="shibing624/text2vec-base-chinese")
-vectordb = Chroma.from_documents(
-    documents=chunks,
-    embedding=embedding,
-    persist_directory=CHROMA_DIR
-)
-vectordb.persist()
-print(f"向量库已保存到 {CHROMA_DIR}")
+vectordb = FAISS.from_documents(documents=chunks, embedding=embedding)
+vectordb.save_local(FAISS_DIR)
+print(f"向量库已保存到 {FAISS_DIR}")

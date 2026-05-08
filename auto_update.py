@@ -14,9 +14,9 @@ os.environ["TRANSFORMERS_NO_TF"] = "1"
 from langchain_community.document_loaders import PDFPlumberLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_community.vectorstores import Chroma
+from langchain_community.vectorstores import FAISS
 
-CHROMA_DIR = "./chroma_db"
+FAISS_DIR = "./faiss_db"
 REPORTS_DIR = "./reports"
 RECORD_FILE = "./download_record.json"
 
@@ -148,9 +148,9 @@ def add_new_pdfs(downloaded_urls):
 
     print("  追加到向量库...")
     embedding = HuggingFaceEmbeddings(model_name="shibing624/text2vec-base-chinese")
-    vectordb = Chroma(persist_directory=CHROMA_DIR, embedding_function=embedding)
+    vectordb = FAISS.load_local(FAISS_DIR, embedding, allow_dangerous_deserialization=True)
     vectordb.add_documents(chunks)
-    vectordb.persist()
+    vectordb.save_local(FAISS_DIR)
     print(f"  ✓ 入库完成，新增 {len(downloaded_urls)} 篇")
 
 

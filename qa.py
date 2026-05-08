@@ -2,23 +2,22 @@
 检索 + 大模型回答（命令行交互）
 """
 import os
-os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
 os.environ["TRANSFORMERS_NO_TF"] = "1"
 
 from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_community.vectorstores import Chroma
+from langchain_community.vectorstores import FAISS
 from openai import OpenAI
 
-CHROMA_DIR = "./chroma_db"
+FAISS_DIR = "./faiss_db"
 
 # 1. 加载向量库
 embedding = HuggingFaceEmbeddings(model_name="shibing624/text2vec-base-chinese")
-vectordb = Chroma(persist_directory=CHROMA_DIR, embedding_function=embedding)
+vectordb = FAISS.load_local(FAISS_DIR, embedding, allow_dangerous_deserialization=True)
 
 # 2. 配置大模型 API
 api_key = os.getenv("DASHSCOPE_API_KEY")
 if not api_key:
-    api_key = input("请输入你的 API Key（通义千问/DeepSeek 等）: ").strip()
+    api_key = input("请输入你的 API Key（DeepSeek/通义千问 等）: ").strip()
 
 base_url = os.getenv("API_BASE_URL", "https://api.deepseek.com")
 model_name = os.getenv("LLM_MODEL", "deepseek-chat")
@@ -28,7 +27,7 @@ client = OpenAI(api_key=api_key, base_url=base_url)
 
 def ask(question):
     results = vectordb.similarity_search(question, k=5)
-    context = "\n\n".join([f"[来源: {r.metadata.get('source', '未知')}]\n{r.page_content}" for r in results])
+    context = "\n\n".join([r.page_content for r in results])
 
     prompt = f"""你是一位资深行业研究员。请基于以下资料，对问题进行全面、深入的分析。
 
