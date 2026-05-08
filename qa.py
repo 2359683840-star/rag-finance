@@ -30,9 +30,11 @@ def ask(question):
     context_parts = []
     for i, r in enumerate(results):
         org = r.metadata.get("org", "")
-        title = r.metadata.get("report_title", "")
+        title = r.metadata.get("title", "")
         if org and title:
             label = f"{org} - {title}"
+        elif org:
+            label = org
         else:
             source = r.metadata.get("source", "未知来源")
             label = os.path.basename(source)
