@@ -1,16 +1,21 @@
 """
-Streamlit 可视化界面
+Streamlit 可视化界面（兼容 Streamlit Cloud 部署）
 """
 import os
-os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
+
 os.environ["TRANSFORMERS_NO_TF"] = "1"
 
+import streamlit as st
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
 from openai import OpenAI
-import streamlit as st
 
 CHROMA_DIR = "./chroma_db"
+
+# 读取 API 配置（优先用 Streamlit Cloud Secrets）
+api_key = st.secrets.get("DASHSCOPE_API_KEY") or os.getenv("DASHSCOPE_API_KEY")
+base_url = st.secrets.get("API_BASE_URL") or os.getenv("API_BASE_URL", "https://api.deepseek.com")
+model_name = st.secrets.get("LLM_MODEL") or os.getenv("LLM_MODEL", "deepseek-chat")
 
 
 @st.cache_resource
@@ -20,25 +25,26 @@ def load_db():
 
 
 vectordb = load_db()
-
-api_key = os.getenv("DASHSCOPE_API_KEY")
-base_url = os.getenv("API_BASE_URL", "https://api.deepseek.com")
-model_name = os.getenv("LLM_MODEL", "deepseek-chat")
 client = OpenAI(api_key=api_key, base_url=base_url)
 
 
 def ask(question):
-    results = vectordb.similarity_search(question, k=3)
+    results = vectordb.similarity_search(question, k=5)
     context = "\n\n".join([r.page_content for r in results])
-    prompt = f"""你是一个金融研究助手。请基于以下资料回答问题。
-如果资料不足以回答，就说"资料中没有相关信息"。
+    prompt = f"""你是一位资深行业研究员。请基于以下资料，对问题进行全面、深入的分析。
+
+要求：
+- 分点阐述，每个观点附上数据支撑
+- 如果资料中有多个机构的观点，要综合对比
+- 指出资料中提到的具体数据（增长率、市场份额等）
+- 如果资料信息不足以完整回答，说明"从现有资料看，还缺少XX方面的信息"
 
 资料：
 {context}
 
 问题：{question}
 
-回答："""
+分析："""
     resp = client.chat.completions.create(
         model=model_name,
         messages=[{"role": "user", "content": prompt}]
