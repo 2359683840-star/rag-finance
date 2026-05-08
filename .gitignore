@@ -1,0 +1,10 @@
+# 原始研报PDF太大，不上传
+reports/
+# 下载记录跟本地路径有关，不传
+download_record.json
+# Python 缓存
+__pycache__/
+*.pyc
+.DS_Store
+# 环境变量
+.env
