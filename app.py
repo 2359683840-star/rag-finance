@@ -32,7 +32,7 @@ def ask(question):
     context_parts = []
     for i, r in enumerate(results):
         source = r.metadata.get("source", "未知来源")
-        context_parts.append(f"[来源 {i+1}: {os.path.basename(source)}]\n{r.page_content}")
+        context_parts.append(f"[来源: {os.path.basename(source)}]\n{r.page_content}")
     context = "\n\n".join(context_parts)
 
     prompt = f"""你是一位资深行业研究员。请基于以下资料，对问题进行全面、深入的分析。
