@@ -27,7 +27,7 @@ vectordb = load_db()
 client = OpenAI(api_key=api_key, base_url=base_url)
 
 
-def ask(question):
+def ask(question, history=None):
     results = vectordb.similarity_search(question, k=5)
     context_parts = []
     for i, r in enumerate(results):
@@ -43,6 +43,15 @@ def ask(question):
         context_parts.append(f"[来源: {label}]\n{r.page_content}")
     context = "\n\n".join(context_parts)
 
+    # 拼接多轮对话历史
+    history_text = ""
+    if history:
+        turns = []
+        for msg in history[-6:]:  # 保留最近3轮
+            role = "用户" if msg["role"] == "user" else "助手"
+            turns.append(f"{role}：{msg['content']}")
+        history_text = "以下为本次对话历史：\n" + "\n".join(turns) + "\n\n"
+
     prompt = f"""你是一位资深行业研究员。请基于以下资料，对问题进行全面、深入的分析。
 
 要求：
@@ -51,17 +60,19 @@ def ask(question):
 - 如果资料中有多个机构的观点，要综合对比
 - 指出资料中提到的具体数据（增长率、市场份额等）
 - 如果资料信息不足以完整回答，说明"从现有资料看，还缺少XX方面的信息"
+- 如果问题是追问（如"那XX呢？""具体说说XX"），结合之前的对话理解上下文
 
-资料：
+{history_text}资料：
 {context}
 
 问题：{question}
 
 分析："""
 
+    messages = [{"role": "user", "content": prompt}]
     resp = client.chat.completions.create(
         model=model_name,
-        messages=[{"role": "user", "content": prompt}]
+        messages=messages
     )
     return resp.choices[0].message.content
 
@@ -83,6 +94,6 @@ if prompt := st.chat_input("输入你的问题"):
         st.markdown(prompt)
     with st.chat_message("assistant"):
         with st.spinner("检索中..."):
-            reply = ask(prompt)
+            reply = ask(prompt, st.session_state.messages[:-1])
         st.markdown(reply)
     st.session_state.messages.append({"role": "assistant", "content": reply})
