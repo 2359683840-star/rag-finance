@@ -15,10 +15,9 @@ os.makedirs(EVAL_DIR, exist_ok=True)
 
 # ─── Embedding ───
 EMBEDDING_MODEL = "shibing624/text2vec-base-chinese"
-os.environ.setdefault("HF_ENDPOINT", "https://hf-mirror.com")
 os.environ.setdefault("TRANSFORMERS_NO_TF", "1")
-os.environ.setdefault("HF_HUB_OFFLINE", "1")
-os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
+# 注意: 不强制设置HF镜像/离线模式，云端部署需要正常访问HuggingFace下载模型
+# 本地如需使用镜像: 在环境变量中设置 HF_ENDPOINT=https://hf-mirror.com
 
 # ─── LLM ───
 def _load_secrets():
