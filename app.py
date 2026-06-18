@@ -44,12 +44,38 @@ client = OpenAI(api_key=api_key, base_url=base_url)
 
 # ─── Vector DB ───
 @st.cache_resource
+def load_embedding():
+    """加载Embedding模型，支持通过HF_ENDPOINT环境变量指定镜像"""
+    import os as _os
+    # 优先使用环境变量/Secrets中配置的镜像端点
+    _hf_endpoint = _os.getenv("HF_ENDPOINT", "")
+    if _hf_endpoint:
+        _os.environ["HF_ENDPOINT"] = _hf_endpoint
+    return HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
+
+
+@st.cache_resource
 def load_db():
     idx_path = os.path.join(FAISS_DIR, "index.faiss")
     if not os.path.exists(idx_path):
         return None
-    embedding = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
-    return FAISS.load_local(FAISS_DIR, embedding, allow_dangerous_deserialization=True)
+    try:
+        embedding = load_embedding()
+        return FAISS.load_local(FAISS_DIR, embedding, allow_dangerous_deserialization=True)
+    except OSError as e:
+        st.error(f"""
+        **Embedding模型加载失败**
+
+        可能原因：
+        1. HuggingFace 连接超时 → 在 Secrets 中添加 `HF_ENDPOINT = "https://hf-mirror.com"`
+        2. 模型未缓存 → 首次部署需要下载约400MB模型文件
+
+        请在 App settings → Secrets 中检查配置后重启应用。
+        """)
+        return None
+    except Exception as e:
+        st.error(f"向量库加载失败: {e}")
+        return None
 
 
 vectordb = load_db()
