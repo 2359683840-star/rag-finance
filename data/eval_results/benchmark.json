@@ -1,0 +1,667 @@
+[
+  {
+    "id": "019c985f64",
+    "category": "retrieval",
+    "category_name": "检索评测",
+    "query": "比亚迪新能源车销量增长对利润释放空间的影响如何？",
+    "expected_org": "买入",
+    "expected_title": "比亚迪",
+    "expected_content_hash": "a2c31c79d9859934050a1c219c5e9722",
+    "expected_keywords": [
+      "比亚迪",
+      "评级：新能源",
+      "新能源车销量增"
+    ]
+  },
+  {
+    "id": "447e7b5097",
+    "category": "retrieval",
+    "category_name": "检索评测",
+    "query": "比亚迪新能源汽车销量增长情况如何？",
+    "expected_org": "增持",
+    "expected_title": "比亚迪",
+    "expected_content_hash": "4a41ce69d6aacbf0301644a10b13da9e",
+    "expected_keywords": [
+      "比亚迪",
+      "评级：新能源",
+      "新能源汽车销量"
+    ]
+  },
+  {
+    "id": "5d5742d770",
+    "category": "retrieval",
+    "category_name": "检索评测",
+    "query": "宁德时代大规模扩产和联手ATL对储能业务有何影响？",
+    "expected_org": "买入",
+    "expected_title": "宁德时代",
+    "expected_content_hash": "ce3641ada5499e7c4a15ad04bda2de53",
+    "expected_keywords": [
+      "宁德时代",
+      "储能增长点"
+    ]
+  },
+  {
+    "id": "dd6c5a263d",
+    "category": "retrieval",
+    "category_name": "检索评测",
+    "query": "赣锋锂业锂盐价格下行对业绩影响及氢氧化锂产能释放情况",
+    "expected_org": "买入",
+    "expected_title": "赣锋锂业",
+    "expected_content_hash": "ee13498c228de13cfdbdf6d0baf52f3f",
+    "expected_keywords": [
+      "日期：能源",
+      "行业：能源"
+    ]
+  },
+  {
+    "id": "d098ee9413",
+    "category": "retrieval",
+    "category_name": "检索评测",
+    "query": "璞泰来在锂电负极材料领域的竞争优势和一体化布局如何？",
+    "expected_org": "买入",
+    "expected_title": "璞泰来",
+    "expected_content_hash": "b7dc7bfe8522f7622590dac6f9095fb2",
+    "expected_keywords": [
+      "锂电一体化"
+    ]
+  },
+  {
+    "id": "54ce7427e6",
+    "category": "retrieval",
+    "category_name": "检索评测",
+    "query": "璞泰来在锂电设备和材料领域的协同效应如何？",
+    "expected_org": "",
+    "expected_title": "璞泰来",
+    "expected_content_hash": "55591c20d7edc058705e19bf3c6ebdf3",
+    "expected_keywords": [
+      "锂电行业",
+      "备+关键材料"
+    ]
+  },
+  {
+    "id": "d4b48fc97a",
+    "category": "retrieval",
+    "category_name": "检索评测",
+    "query": "隆基绿能HJT电池效率突破对光伏行业影响如何？",
+    "expected_org": "买入",
+    "expected_title": "隆基绿能",
+    "expected_content_hash": "0cf43727ea2011e24c19108215520f83",
+    "expected_keywords": [
+      "隆基绿能",
+      "光伏设备"
+    ]
+  },
+  {
+    "id": "1d76f0ab54",
+    "category": "retrieval",
+    "category_name": "检索评测",
+    "query": "比亚迪新能源汽车销量破三万，纯电动乘用车表现如何？",
+    "expected_org": "增持",
+    "expected_title": "比亚迪",
+    "expected_content_hash": "ed31c87c7dd251aebfe6949079b44883",
+    "expected_keywords": [
+      "比亚迪",
+      "评级：新能源",
+      "新能源汽车销量"
+    ]
+  },
+  {
+    "id": "701f4962e6",
+    "category": "retrieval",
+    "category_name": "检索评测",
+    "query": "比亚迪新能源车销量和电池外供业务未来增长如何？",
+    "expected_org": "买入",
+    "expected_title": "比亚迪",
+    "expected_content_hash": "32b55e5bd71faba3da4656d1f0da4508",
+    "expected_keywords": [
+      "比亚迪",
+      "评级：新能源",
+      "新能源车年中大"
+    ]
+  },
+  {
+    "id": "9d60e3243b",
+    "category": "retrieval",
+    "category_name": "检索评测",
+    "query": "亿纬锂能动力储能双增长及46系大圆柱商业化进展如何？",
+    "expected_org": "买入",
+    "expected_title": "亿纬锂能",
+    "expected_content_hash": "006915c3666a78a1e1e3af47c53ed79b",
+    "expected_keywords": [
+      "储能双高速增"
+    ]
+  },
+  {
+    "id": "8950d438b9",
+    "category": "retrieval",
+    "category_name": "检索评测",
+    "query": "阳光电源逆变器全球布局及光储盈利前景如何？",
+    "expected_org": "买入",
+    "expected_title": "阳光电源",
+    "expected_content_hash": "022db0efb58e0ab6cc5b1761fbb98069",
+    "expected_keywords": [
+      "阳光电源",
+      "光伏设备"
+    ]
+  },
+  {
+    "id": "5e19c2b2a8",
+    "category": "retrieval",
+    "category_name": "检索评测",
+    "query": "比亚迪纯电混动及刀片电池竞争力如何？",
+    "expected_org": "买入",
+    "expected_title": "比亚迪",
+    "expected_content_hash": "b5cc93a1c89cdd60a4762a113f98e480",
+    "expected_keywords": [
+      "比亚迪"
+    ]
+  },
+  {
+    "id": "e01b5b0d50",
+    "category": "retrieval",
+    "category_name": "检索评测",
+    "query": "阳光电源光储业务景气度如何影响其业绩和盈利能力？",
+    "expected_org": "",
+    "expected_title": "阳光电源",
+    "expected_content_hash": "4014d31f39aab2592b8b476b39368f55",
+    "expected_keywords": [
+      "阳光电源",
+      "光伏设备"
+    ]
+  },
+  {
+    "id": "56ce4910cb",
+    "category": "retrieval",
+    "category_name": "检索评测",
+    "query": "亿纬锂能软包电池业务和高镍技术路线的发展前景如何？",
+    "expected_org": "买入",
+    "expected_title": "亿纬锂能",
+    "expected_content_hash": "36461f12d4f6ad4b6f50e4f5ce00f4fb",
+    "expected_keywords": []
+  },
+  {
+    "id": "8c0d80eea7",
+    "category": "retrieval",
+    "category_name": "检索评测",
+    "query": "宁德时代扩产提速对TWh时代的影响如何？",
+    "expected_org": "买入",
+    "expected_title": "宁德时代",
+    "expected_content_hash": "d2a044cb135fac2674f1c9479d2e08ab",
+    "expected_keywords": [
+      "宁德时代"
+    ]
+  },
+  {
+    "claim": "比亚迪2022年三季报业绩大超市场预期",
+    "label": "supported",
+    "evidence": "业绩大超市场预期",
+    "id": "c6304f881a",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：比亚迪 | 评级：2022年三季报点评：业绩大超市场预期，单车盈利显著提升\n标题：比亚迪\n行业：乘用车 | 日期：乘用车",
+    "created_at": "2026-06-18T21:32:10.858085"
+  },
+  {
+    "claim": "比亚迪2022年三季报单车盈利显著提升",
+    "label": "supported",
+    "evidence": "单车盈利显著提升",
+    "id": "ae1f660f6e",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：比亚迪 | 评级：2022年三季报点评：业绩大超市场预期，单车盈利显著提升\n标题：比亚迪\n行业：乘用车 | 日期：乘用车",
+    "created_at": "2026-06-18T21:32:10.858085"
+  },
+  {
+    "claim": "比亚迪2022年三季报单车盈利下降10%",
+    "label": "not_supported",
+    "evidence": "原文明确表示单车盈利显著提升，与下降方向相反",
+    "id": "5197878455",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：比亚迪 | 评级：2022年三季报点评：业绩大超市场预期，单车盈利显著提升\n标题：比亚迪\n行业：乘用车 | 日期：乘用车",
+    "created_at": "2026-06-18T21:32:10.858085"
+  },
+  {
+    "claim": "国电南瑞2023年三季报业绩符合市场预期",
+    "label": "supported",
+    "evidence": "业绩符合市场预期，看好公司稳健增长",
+    "id": "061b7a44b3",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：2023年三季报点评：业绩符合市场预期，看好公司稳健增长\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:13.065639"
+  },
+  {
+    "claim": "国电南瑞2023年三季报业绩大幅超出市场预期",
+    "label": "not_supported",
+    "evidence": "原文表述为“业绩符合市场预期”，而非“大幅超出市场预期”",
+    "id": "941ebde468",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：2023年三季报点评：业绩符合市场预期，看好公司稳健增长\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:13.065639"
+  },
+  {
+    "claim": "机构对国电南瑞的评级为买入",
+    "label": "supported",
+    "evidence": "买入 | 股票：国电南瑞 | 评级：2023年三季报点评",
+    "id": "467a6f440c",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：2023年三季报点评：业绩符合市场预期，看好公司稳健增长\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:13.065639"
+  },
+  {
+    "claim": "国电南瑞2022年三季报业绩符合市场预期",
+    "label": "supported",
+    "evidence": "业绩符合市场预期，盈利能力稳健提升",
+    "id": "fa99b0c1bf",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：2022三季报点评：业绩符合市场预期，盈利能力稳健提升\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:15.762341"
+  },
+  {
+    "claim": "国电南瑞2022年三季报盈利能力稳健提升",
+    "label": "supported",
+    "evidence": "盈利能力稳健提升",
+    "id": "2965756f91",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：2022三季报点评：业绩符合市场预期，盈利能力稳健提升\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:15.762341"
+  },
+  {
+    "claim": "国电南瑞2022年三季报业绩超出市场预期",
+    "label": "not_supported",
+    "evidence": "原文明确表述为'业绩符合市场预期'，而非'超出市场预期'",
+    "id": "32d2413abe",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：2022三季报点评：业绩符合市场预期，盈利能力稳健提升\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:15.762341"
+  },
+  {
+    "claim": "国电南瑞2021年上半年利润预增超市场预期",
+    "label": "supported",
+    "evidence": "利润预增超市场预期",
+    "id": "1831f005d5",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：2021年半年度业绩预告点评：收入订单稳增、盈利能力改善，利润预增超市场预期\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:17.822115"
+  },
+  {
+    "claim": "国电南瑞2021年上半年收入与订单稳增，盈利能力改善",
+    "label": "supported",
+    "evidence": "收入订单稳增、盈利能力改善",
+    "id": "4a4ed1ba00",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：2021年半年度业绩预告点评：收入订单稳增、盈利能力改善，利润预增超市场预期\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:17.822115"
+  },
+  {
+    "claim": "国电南瑞2021年上半年利润预减20%",
+    "label": "not_supported",
+    "evidence": "原文明确指出“利润预增超市场预期”，而非预减",
+    "id": "54126f5af5",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：2021年半年度业绩预告点评：收入订单稳增、盈利能力改善，利润预增超市场预期\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:17.822115"
+  },
+  {
+    "claim": "阳光电源三季度业绩符合预期",
+    "label": "supported",
+    "evidence": "业绩符合预期",
+    "id": "aaffc9f3b9",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "",
+    "source_content": "机构： | 股票：阳光电源 | 评级：三季度财报点评：业绩符合预期，分布式业务潜力大\n标题：阳光电源\n行业：光伏设备 | 日期：光伏设备",
+    "created_at": "2026-06-18T21:32:19.849861"
+  },
+  {
+    "claim": "阳光电源分布式业务潜力大",
+    "label": "supported",
+    "evidence": "分布式业务潜力大",
+    "id": "0977b849ca",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "",
+    "source_content": "机构： | 股票：阳光电源 | 评级：三季度财报点评：业绩符合预期，分布式业务潜力大\n标题：阳光电源\n行业：光伏设备 | 日期：光伏设备",
+    "created_at": "2026-06-18T21:32:19.849861"
+  },
+  {
+    "claim": "阳光电源三季度业绩大幅超出预期",
+    "label": "not_supported",
+    "evidence": "原文明确表述为“业绩符合预期”，而非“大幅超出预期”",
+    "id": "9c3436eaec",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "",
+    "source_content": "机构： | 股票：阳光电源 | 评级：三季度财报点评：业绩符合预期，分布式业务潜力大\n标题：阳光电源\n行业：光伏设备 | 日期：光伏设备",
+    "created_at": "2026-06-18T21:32:19.849861"
+  },
+  {
+    "claim": "国电南瑞2021年第三季度业绩符合市场预期",
+    "label": "supported",
+    "evidence": "Q3符合预期，新型电网龙头稳进",
+    "id": "b18f8035b1",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：2021年三季报点评：Q3符合预期，新型电网龙头稳进\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:22.093992"
+  },
+  {
+    "claim": "国电南瑞2021年第三季度业绩大幅超出预期",
+    "label": "not_supported",
+    "evidence": "原文表述为“Q3符合预期”，并非“大幅超出预期”",
+    "id": "eb5add160d",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：2021年三季报点评：Q3符合预期，新型电网龙头稳进\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:22.093992"
+  },
+  {
+    "claim": "国电南瑞被评级机构给予“买入”评级",
+    "label": "supported",
+    "evidence": "来源：买入；评级：2021年三季报点评",
+    "id": "a15f0a07fd",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：2021年三季报点评：Q3符合预期，新型电网龙头稳进\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:22.093992"
+  },
+  {
+    "claim": "国电南瑞单季度毛利率持续上行",
+    "label": "supported",
+    "evidence": "单季度毛利率持续上行",
+    "id": "966cfa7395",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：单季度毛利率持续上行，四季度将成为业绩向上分水岭\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:24.141229"
+  },
+  {
+    "claim": "四季度将成为国电南瑞业绩向上分水岭",
+    "label": "supported",
+    "evidence": "四季度将成为业绩向上分水岭",
+    "id": "d7c184a0c7",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：单季度毛利率持续上行，四季度将成为业绩向上分水岭\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:24.141229"
+  },
+  {
+    "claim": "国电南瑞上半年毛利率出现下滑",
+    "label": "not_supported",
+    "evidence": "原文明确表述为“单季度毛利率持续上行”，未提及上半年毛利率下滑",
+    "id": "db9e2729b4",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：单季度毛利率持续上行，四季度将成为业绩向上分水岭\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:24.141229"
+  },
+  {
+    "claim": "国电南瑞2022年第三季度业绩符合预期",
+    "label": "supported",
+    "evidence": "Q3业绩符合预期",
+    "id": "f4bfc03f28",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：2022年三季报点评：Q3业绩符合预期，管理质效再提升\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:26.218494"
+  },
+  {
+    "claim": "国电南瑞2022年第三季度管理质效有所下降",
+    "label": "not_supported",
+    "evidence": "原文标题为“管理质效再提升”，表明管理质效提升而非下降",
+    "id": "3963ea4f36",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：2022年三季报点评：Q3业绩符合预期，管理质效再提升\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:26.218494"
+  },
+  {
+    "claim": "国电南瑞三季报显示经营业绩持续增长",
+    "label": "supported",
+    "evidence": "经营业绩持续增长",
+    "id": "a96c9360c3",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：三季报点评：经营业绩持续增长 特高压提升公司发展空间\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:28.138822"
+  },
+  {
+    "claim": "特高压业务为国电南瑞提升了发展空间",
+    "label": "supported",
+    "evidence": "特高压提升公司发展空间",
+    "id": "4145ea20b1",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：三季报点评：经营业绩持续增长 特高压提升公司发展空间\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:28.138822"
+  },
+  {
+    "claim": "国电南瑞三季报显示经营业绩出现下滑",
+    "label": "not_supported",
+    "evidence": "原文明确写的是'经营业绩持续增长'，而非下滑",
+    "id": "46848b8f32",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：三季报点评：经营业绩持续增长 特高压提升公司发展空间\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:28.138822"
+  },
+  {
+    "claim": "亿纬锂能2020年三季报显示各项业务经营稳健。",
+    "label": "supported",
+    "evidence": "各项业务经营稳健",
+    "id": "3bc027032e",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：亿纬锂能 | 评级：亿纬锂能2020三季报点评报告：各项业务经营稳健，明年高速增长可期\n标题：亿纬锂能\n行业：电池 | 日期：电池",
+    "created_at": "2026-06-18T21:32:30.545729"
+  },
+  {
+    "claim": "研报预测亿纬锂能明年将实现高速增长。",
+    "label": "supported",
+    "evidence": "明年高速增长可期",
+    "id": "00dff8389c",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：亿纬锂能 | 评级：亿纬锂能2020三季报点评报告：各项业务经营稳健，明年高速增长可期\n标题：亿纬锂能\n行业：电池 | 日期：电池",
+    "created_at": "2026-06-18T21:32:30.545729"
+  },
+  {
+    "claim": "研报对亿纬锂能的评级为“买入”，且目标价为100元。",
+    "label": "not_supported",
+    "evidence": "原文中评级为“买入”，但未提及目标价100元，该数字为篡改",
+    "id": "2edf68c1c1",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：亿纬锂能 | 评级：亿纬锂能2020三季报点评报告：各项业务经营稳健，明年高速增长可期\n标题：亿纬锂能\n行业：电池 | 日期：电池",
+    "created_at": "2026-06-18T21:32:30.545729"
+  },
+  {
+    "claim": "通威股份2021年前三季度盈利维持高增长",
+    "label": "supported",
+    "evidence": "前三季度盈利维持高增，受益于硅料价格高企",
+    "id": "ed27d690aa",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：通威股份 | 评级：2021年三季报业绩预告点评：前三季度盈利维持高增，受益于硅料价格高企\n标题：通威股份\n行业：光伏设备 | 日期：光伏设备",
+    "created_at": "2026-06-18T21:32:32.664706"
+  },
+  {
+    "claim": "通威股份2021年三季报业绩预告显示公司盈利主要受益于硅料价格高企",
+    "label": "supported",
+    "evidence": "前三季度盈利维持高增，受益于硅料价格高企",
+    "id": "768f727e97",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：通威股份 | 评级：2021年三季报业绩预告点评：前三季度盈利维持高增，受益于硅料价格高企\n标题：通威股份\n行业：光伏设备 | 日期：光伏设备",
+    "created_at": "2026-06-18T21:32:32.664706"
+  },
+  {
+    "claim": "通威股份2021年前三季度盈利出现大幅下滑",
+    "label": "not_supported",
+    "evidence": "原文明确表示‘前三季度盈利维持高增’，而非下滑",
+    "id": "758ca876a2",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：通威股份 | 评级：2021年三季报业绩预告点评：前三季度盈利维持高增，受益于硅料价格高企\n标题：通威股份\n行业：光伏设备 | 日期：光伏设备",
+    "created_at": "2026-06-18T21:32:32.664706"
+  },
+  {
+    "claim": "国电南瑞在Q2恢复快速增长，网外业务和新兴业务成效显著",
+    "label": "supported",
+    "evidence": "评级：Q2恢复快速增长，网外业务、新兴业务成效显著",
+    "id": "1305a95120",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：Q2恢复快速增长，网外业务、新兴业务成效显著\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:34.688054"
+  },
+  {
+    "claim": "国电南瑞的股票评级为“买入”",
+    "label": "supported",
+    "evidence": "来源：买入",
+    "id": "3f25e2950c",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：Q2恢复快速增长，网外业务、新兴业务成效显著\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:34.688054"
+  },
+  {
+    "claim": "国电南瑞Q2净利润同比下降了10%",
+    "label": "not_supported",
+    "evidence": "原文中未提及净利润下降，而是指出“Q2恢复快速增长”",
+    "id": "db9ea78084",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：Q2恢复快速增长，网外业务、新兴业务成效显著\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:34.688054"
+  },
+  {
+    "claim": "阳光电源业绩预告大超预期，精益管理显现成效",
+    "label": "supported",
+    "evidence": "业绩预告大超预期，精益管理显现成效",
+    "id": "890bed6129",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：阳光电源 | 评级：业绩预告大超预期，精益管理显现成效\n标题：阳光电源\n行业：光伏设备 | 日期：光伏设备",
+    "created_at": "2026-06-18T21:32:36.940490"
+  },
+  {
+    "claim": "阳光电源的评级为买入",
+    "label": "supported",
+    "evidence": "来源：买入",
+    "id": "a257ed9fd6",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：阳光电源 | 评级：业绩预告大超预期，精益管理显现成效\n标题：阳光电源\n行业：光伏设备 | 日期：光伏设备",
+    "created_at": "2026-06-18T21:32:36.940490"
+  },
+  {
+    "claim": "阳光电源的业绩预告低于市场预期",
+    "label": "not_supported",
+    "evidence": "原文明确表述为“业绩预告大超预期”，而非低于预期",
+    "id": "f65a4f9800",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：阳光电源 | 评级：业绩预告大超预期，精益管理显现成效\n标题：阳光电源\n行业：光伏设备 | 日期：光伏设备",
+    "created_at": "2026-06-18T21:32:36.940490"
+  },
+  {
+    "claim": "阳光电源2021年报和2022一季报业绩低于预期",
+    "label": "supported",
+    "evidence": "业绩低于预期，逆变器、储能、户用光伏三大增长值期待",
+    "id": "720e45960c",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：阳光电源 | 评级：2021年报&2022一季报点评：业绩低于预期，逆变器、储能、户用光伏三大增长值期待\n标题：阳光电源\n行业：光伏设备 | 日期：光伏设备",
+    "created_at": "2026-06-18T21:32:38.907179"
+  },
+  {
+    "claim": "阳光电源的逆变器、储能、户用光伏是三大增长点",
+    "label": "supported",
+    "evidence": "逆变器、储能、户用光伏三大增长值期待",
+    "id": "49b407cfc7",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：阳光电源 | 评级：2021年报&2022一季报点评：业绩低于预期，逆变器、储能、户用光伏三大增长值期待\n标题：阳光电源\n行业：光伏设备 | 日期：光伏设备",
+    "created_at": "2026-06-18T21:32:38.907179"
+  },
+  {
+    "claim": "阳光电源2022年一季报业绩超出预期",
+    "label": "not_supported",
+    "evidence": "原文明确指出'业绩低于预期'，而非超出预期",
+    "id": "358c72b7ab",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：阳光电源 | 评级：2021年报&2022一季报点评：业绩低于预期，逆变器、储能、户用光伏三大增长值期待\n标题：阳光电源\n行业：光伏设备 | 日期：光伏设备",
+    "created_at": "2026-06-18T21:32:38.907179"
+  },
+  {
+    "claim": "国电南瑞2021年报及22Q1季报显示盈利能力大幅提升",
+    "label": "supported",
+    "evidence": "盈利能力大幅提升，公司业绩表现亮眼",
+    "id": "cfd40e76a2",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：2021年报及22Q1季报点评：盈利能力大幅提升，公司业绩表现亮眼\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:40.730534"
+  },
+  {
+    "claim": "国电南瑞2021年净利润同比下降10%",
+    "label": "not_supported",
+    "evidence": "原文未提及净利润下降，而是指出盈利能力大幅提升，业绩表现亮眼",
+    "id": "af938f35cb",
+    "category": "faithfulness",
+    "category_name": "忠实度评测",
+    "source_org": "买入",
+    "source_content": "机构：买入 | 股票：国电南瑞 | 评级：2021年报及22Q1季报点评：盈利能力大幅提升，公司业绩表现亮眼\n标题：国电南瑞\n行业：电网设备 | 日期：电网设备",
+    "created_at": "2026-06-18T21:32:40.730534"
+  }
+]

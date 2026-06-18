@@ -1,0 +1,912 @@
+[
+  {
+    "query": "比亚迪新能源车销量增长对利润释放空间的影响如何？",
+    "scores": {
+      "org_hit": 1.0,
+      "keyword_coverage": 1.0,
+      "rank_score": 1.0,
+      "overall": 1.0
+    },
+    "details": {
+      "org_rank": 1,
+      "keywords_found": 3,
+      "keywords_total": 3,
+      "retrieved_orgs": [
+        "买入"
+      ]
+    },
+    "test_case_id": "019c985f64",
+    "category": "retrieval",
+    "evaluated_at": "2026-06-18T21:33:59.811808"
+  },
+  {
+    "query": "比亚迪新能源汽车销量增长情况如何？",
+    "scores": {
+      "org_hit": 1.0,
+      "keyword_coverage": 1.0,
+      "rank_score": 1.0,
+      "overall": 1.0
+    },
+    "details": {
+      "org_rank": 1,
+      "keywords_found": 3,
+      "keywords_total": 3,
+      "retrieved_orgs": [
+        "买入",
+        "增持"
+      ]
+    },
+    "test_case_id": "447e7b5097",
+    "category": "retrieval",
+    "evaluated_at": "2026-06-18T21:34:00.013750"
+  },
+  {
+    "query": "宁德时代大规模扩产和联手ATL对储能业务有何影响？",
+    "scores": {
+      "org_hit": 1.0,
+      "keyword_coverage": 1.0,
+      "rank_score": 1.0,
+      "overall": 1.0
+    },
+    "details": {
+      "org_rank": 1,
+      "keywords_found": 2,
+      "keywords_total": 2,
+      "retrieved_orgs": [
+        "买入"
+      ]
+    },
+    "test_case_id": "5d5742d770",
+    "category": "retrieval",
+    "evaluated_at": "2026-06-18T21:34:00.214500"
+  },
+  {
+    "query": "赣锋锂业锂盐价格下行对业绩影响及氢氧化锂产能释放情况",
+    "scores": {
+      "org_hit": 1.0,
+      "keyword_coverage": 1.0,
+      "rank_score": 1.0,
+      "overall": 1.0
+    },
+    "details": {
+      "org_rank": 1,
+      "keywords_found": 2,
+      "keywords_total": 2,
+      "retrieved_orgs": [
+        "买入",
+        "",
+        "增持"
+      ]
+    },
+    "test_case_id": "dd6c5a263d",
+    "category": "retrieval",
+    "evaluated_at": "2026-06-18T21:34:00.414769"
+  },
+  {
+    "query": "璞泰来在锂电负极材料领域的竞争优势和一体化布局如何？",
+    "scores": {
+      "org_hit": 1.0,
+      "keyword_coverage": 1.0,
+      "rank_score": 1.0,
+      "overall": 1.0
+    },
+    "details": {
+      "org_rank": 1,
+      "keywords_found": 1,
+      "keywords_total": 1,
+      "retrieved_orgs": [
+        "买入",
+        ""
+      ]
+    },
+    "test_case_id": "d098ee9413",
+    "category": "retrieval",
+    "evaluated_at": "2026-06-18T21:34:00.615238"
+  },
+  {
+    "query": "璞泰来在锂电设备和材料领域的协同效应如何？",
+    "scores": {
+      "org_hit": 0.0,
+      "keyword_coverage": 1.0,
+      "rank_score": 0.0,
+      "overall": 0.3
+    },
+    "details": {
+      "org_rank": -1,
+      "keywords_found": 2,
+      "keywords_total": 2,
+      "retrieved_orgs": [
+        "",
+        "增持",
+        "买入"
+      ]
+    },
+    "test_case_id": "54ce7427e6",
+    "category": "retrieval",
+    "evaluated_at": "2026-06-18T21:34:00.815644"
+  },
+  {
+    "query": "隆基绿能HJT电池效率突破对光伏行业影响如何？",
+    "scores": {
+      "org_hit": 1.0,
+      "keyword_coverage": 1.0,
+      "rank_score": 1.0,
+      "overall": 1.0
+    },
+    "details": {
+      "org_rank": 1,
+      "keywords_found": 2,
+      "keywords_total": 2,
+      "retrieved_orgs": [
+        "买入"
+      ]
+    },
+    "test_case_id": "d4b48fc97a",
+    "category": "retrieval",
+    "evaluated_at": "2026-06-18T21:34:01.016378"
+  },
+  {
+    "query": "比亚迪新能源汽车销量破三万，纯电动乘用车表现如何？",
+    "scores": {
+      "org_hit": 1.0,
+      "keyword_coverage": 1.0,
+      "rank_score": 1.0,
+      "overall": 1.0
+    },
+    "details": {
+      "org_rank": 1,
+      "keywords_found": 3,
+      "keywords_total": 3,
+      "retrieved_orgs": [
+        "买入",
+        "增持"
+      ]
+    },
+    "test_case_id": "1d76f0ab54",
+    "category": "retrieval",
+    "evaluated_at": "2026-06-18T21:34:01.216605"
+  },
+  {
+    "query": "比亚迪新能源车销量和电池外供业务未来增长如何？",
+    "scores": {
+      "org_hit": 1.0,
+      "keyword_coverage": 1.0,
+      "rank_score": 1.0,
+      "overall": 1.0
+    },
+    "details": {
+      "org_rank": 1,
+      "keywords_found": 3,
+      "keywords_total": 3,
+      "retrieved_orgs": [
+        "买入"
+      ]
+    },
+    "test_case_id": "701f4962e6",
+    "category": "retrieval",
+    "evaluated_at": "2026-06-18T21:34:01.417325"
+  },
+  {
+    "query": "亿纬锂能动力储能双增长及46系大圆柱商业化进展如何？",
+    "scores": {
+      "org_hit": 1.0,
+      "keyword_coverage": 1.0,
+      "rank_score": 1.0,
+      "overall": 1.0
+    },
+    "details": {
+      "org_rank": 1,
+      "keywords_found": 1,
+      "keywords_total": 1,
+      "retrieved_orgs": [
+        "买入"
+      ]
+    },
+    "test_case_id": "9d60e3243b",
+    "category": "retrieval",
+    "evaluated_at": "2026-06-18T21:34:01.617708"
+  },
+  {
+    "query": "阳光电源逆变器全球布局及光储盈利前景如何？",
+    "scores": {
+      "org_hit": 1.0,
+      "keyword_coverage": 1.0,
+      "rank_score": 1.0,
+      "overall": 1.0
+    },
+    "details": {
+      "org_rank": 1,
+      "keywords_found": 2,
+      "keywords_total": 2,
+      "retrieved_orgs": [
+        "买入"
+      ]
+    },
+    "test_case_id": "8950d438b9",
+    "category": "retrieval",
+    "evaluated_at": "2026-06-18T21:34:01.818070"
+  },
+  {
+    "query": "比亚迪纯电混动及刀片电池竞争力如何？",
+    "scores": {
+      "org_hit": 1.0,
+      "keyword_coverage": 1.0,
+      "rank_score": 1.0,
+      "overall": 1.0
+    },
+    "details": {
+      "org_rank": 1,
+      "keywords_found": 1,
+      "keywords_total": 1,
+      "retrieved_orgs": [
+        "买入"
+      ]
+    },
+    "test_case_id": "5e19c2b2a8",
+    "category": "retrieval",
+    "evaluated_at": "2026-06-18T21:34:02.018468"
+  },
+  {
+    "query": "阳光电源光储业务景气度如何影响其业绩和盈利能力？",
+    "scores": {
+      "org_hit": 0.0,
+      "keyword_coverage": 1.0,
+      "rank_score": 0.0,
+      "overall": 0.3
+    },
+    "details": {
+      "org_rank": -1,
+      "keywords_found": 2,
+      "keywords_total": 2,
+      "retrieved_orgs": [
+        "",
+        "增持"
+      ]
+    },
+    "test_case_id": "e01b5b0d50",
+    "category": "retrieval",
+    "evaluated_at": "2026-06-18T21:34:02.219255"
+  },
+  {
+    "query": "亿纬锂能软包电池业务和高镍技术路线的发展前景如何？",
+    "scores": {
+      "org_hit": 1.0,
+      "keyword_coverage": 0.0,
+      "rank_score": 1.0,
+      "overall": 0.7
+    },
+    "details": {
+      "org_rank": 1,
+      "keywords_found": 0,
+      "keywords_total": 1,
+      "retrieved_orgs": [
+        "买入"
+      ]
+    },
+    "test_case_id": "56ce4910cb",
+    "category": "retrieval",
+    "evaluated_at": "2026-06-18T21:34:02.419550"
+  },
+  {
+    "query": "宁德时代扩产提速对TWh时代的影响如何？",
+    "scores": {
+      "org_hit": 1.0,
+      "keyword_coverage": 1.0,
+      "rank_score": 1.0,
+      "overall": 1.0
+    },
+    "details": {
+      "org_rank": 1,
+      "keywords_found": 1,
+      "keywords_total": 1,
+      "retrieved_orgs": [
+        "买入"
+      ]
+    },
+    "test_case_id": "8c0d80eea7",
+    "category": "retrieval",
+    "evaluated_at": "2026-06-18T21:34:02.620131"
+  },
+  {
+    "claim": "比亚迪2022年三季报业绩大超市场预期",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文标题明确提到‘业绩大超市场预期’，与声明内容一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "c6304f881a",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:04.843813"
+  },
+  {
+    "claim": "比亚迪2022年三季报单车盈利显著提升",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文标题明确提到‘单车盈利显著提升’，与声明内容一致，因此模型判断为supported正确。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "ae1f660f6e",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:06.403688"
+  },
+  {
+    "claim": "比亚迪2022年三季报单车盈利下降10%",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文明确指出“单车盈利显著提升”，而声明称“单车盈利下降10%”，与原文信息相反，因此模型判断为not_supported正确。",
+      "correct_judgment": "not_supported"
+    },
+    "test_case_id": "5197878455",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:07.720207"
+  },
+  {
+    "claim": "国电南瑞2023年三季报业绩符合市场预期",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文评级中明确提到“业绩符合市场预期”，与声明内容一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "061b7a44b3",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:09.196826"
+  },
+  {
+    "claim": "国电南瑞2023年三季报业绩大幅超出市场预期",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文明确表述为“业绩符合市场预期”，而声明声称“大幅超出市场预期”，两者矛盾，因此模型判断为not_supported是正确的。",
+      "correct_judgment": "not_supported"
+    },
+    "test_case_id": "941ebde468",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:10.728537"
+  },
+  {
+    "claim": "机构对国电南瑞的评级为买入",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文明确标注机构评级为“买入”，声明内容与原文一致，因此模型判断为supported正确。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "467a6f440c",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:12.489652"
+  },
+  {
+    "claim": "国电南瑞2022年三季报业绩符合市场预期",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文明确提到“业绩符合市场预期”，与声明内容一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "fa99b0c1bf",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:14.023370"
+  },
+  {
+    "claim": "国电南瑞2022年三季报盈利能力稳健提升",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文评级中明确提到“盈利能力稳健提升”，与声明内容一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "2965756f91",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:15.553678"
+  },
+  {
+    "claim": "国电南瑞2022年三季报业绩超出市场预期",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文明确说“业绩符合市场预期”，而声明说“超出市场预期”，两者矛盾，因此模型判断为not_supported是正确的。",
+      "correct_judgment": "not_supported"
+    },
+    "test_case_id": "32d2413abe",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:17.208451"
+  },
+  {
+    "claim": "国电南瑞2021年上半年利润预增超市场预期",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文明确指出‘利润预增超市场预期’，与声明内容完全一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "1831f005d5",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:18.935131"
+  },
+  {
+    "claim": "国电南瑞2021年上半年收入与订单稳增，盈利能力改善",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文明确指出“收入订单稳增、盈利能力改善”，与声明内容完全一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "4a4ed1ba00",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:20.496079"
+  },
+  {
+    "claim": "国电南瑞2021年上半年利润预减20%",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文明确指出利润预增超市场预期，而声明称利润预减20%，两者完全矛盾，因此模型判断声明为not_supported是正确的。",
+      "correct_judgment": "not_supported"
+    },
+    "test_case_id": "54126f5af5",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:22.209286"
+  },
+  {
+    "claim": "阳光电源三季度业绩符合预期",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文评级中明确提到“业绩符合预期”，与声明内容一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "aaffc9f3b9",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:23.905494"
+  },
+  {
+    "claim": "阳光电源分布式业务潜力大",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文评级中明确提到“分布式业务潜力大”，与声明内容一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "0977b849ca",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:25.706412"
+  },
+  {
+    "claim": "阳光电源三季度业绩大幅超出预期",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文明确说“业绩符合预期”，而声明说“大幅超出预期”，两者矛盾，因此模型判断为not_supported是正确的。",
+      "correct_judgment": "not_supported"
+    },
+    "test_case_id": "9c3436eaec",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:27.326292"
+  },
+  {
+    "claim": "国电南瑞2021年第三季度业绩符合市场预期",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文评级中明确提到“Q3符合预期”，与声明“2021年第三季度业绩符合市场预期”一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "b18f8035b1",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:29.210156"
+  },
+  {
+    "claim": "国电南瑞2021年第三季度业绩大幅超出预期",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文评级明确指出‘Q3符合预期’，而声明称‘大幅超出预期’，两者矛盾，因此模型判断为not_supported正确。",
+      "correct_judgment": "not_supported"
+    },
+    "test_case_id": "eb5add160d",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:31.019015"
+  },
+  {
+    "claim": "国电南瑞被评级机构给予“买入”评级",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文明确提到机构给予国电南瑞“买入”评级，声明内容与原文一致，因此模型判断为supported正确。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "a15f0a07fd",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:32.654145"
+  },
+  {
+    "claim": "国电南瑞单季度毛利率持续上行",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文明确提到“单季度毛利率持续上行”，与声明内容一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "966cfa7395",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:34.394976"
+  },
+  {
+    "claim": "四季度将成为国电南瑞业绩向上分水岭",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文明确提到“四季度将成为业绩向上分水岭”，声明内容与原文一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "d7c184a0c7",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:36.035910"
+  },
+  {
+    "claim": "国电南瑞上半年毛利率出现下滑",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文提到“单季度毛利率持续上行”，但未提及上半年毛利率情况，因此无法支持“上半年毛利率出现下滑”的声明，模型判断为not_supported正确。",
+      "correct_judgment": "not_supported"
+    },
+    "test_case_id": "db9e2729b4",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:37.867395"
+  },
+  {
+    "claim": "国电南瑞2022年第三季度业绩符合预期",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文评级中明确提到“Q3业绩符合预期”，与声明内容一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "f4bfc03f28",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:39.641635"
+  },
+  {
+    "claim": "国电南瑞2022年第三季度管理质效有所下降",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文标题明确表示‘管理质效再提升’，而声明说‘管理质效有所下降’，两者完全相反，因此声明未被原文支持，模型判断为not_supported是正确的。",
+      "correct_judgment": "not_supported"
+    },
+    "test_case_id": "3963ea4f36",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:41.465534"
+  },
+  {
+    "claim": "国电南瑞三季报显示经营业绩持续增长",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文标题明确提到‘经营业绩持续增长’，与声明内容一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "a96c9360c3",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:43.410351"
+  },
+  {
+    "claim": "特高压业务为国电南瑞提升了发展空间",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文标题明确提到‘特高压提升公司发展空间’，与声明‘特高压业务为国电南瑞提升了发展空间’含义一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "4145ea20b1",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:45.251041"
+  },
+  {
+    "claim": "国电南瑞三季报显示经营业绩出现下滑",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文标题明确表示‘经营业绩持续增长’，而声明称‘经营业绩出现下滑’，两者完全矛盾，因此声明未被原文支持，模型判断为not_supported正确。",
+      "correct_judgment": "not_supported"
+    },
+    "test_case_id": "46848b8f32",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:47.400280"
+  },
+  {
+    "claim": "亿纬锂能2020年三季报显示各项业务经营稳健。",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文标题明确提到‘各项业务经营稳健’，与声明内容一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "3bc027032e",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:49.279184"
+  },
+  {
+    "claim": "研报预测亿纬锂能明年将实现高速增长。",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文标题明确提到‘明年高速增长可期’，与声明‘研报预测亿纬锂能明年将实现高速增长’一致，因此模型判断为supported正确。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "00dff8389c",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:51.397084"
+  },
+  {
+    "claim": "研报对亿纬锂能的评级为“买入”，且目标价为100元。",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文中仅提到评级为“买入”，并未提及目标价100元，因此声明中的目标价信息在原文中无依据，模型判断为not_supported正确。",
+      "correct_judgment": "not_supported"
+    },
+    "test_case_id": "2edf68c1c1",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:53.375076"
+  },
+  {
+    "claim": "通威股份2021年前三季度盈利维持高增长",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文标题明确提到“前三季度盈利维持高增”，与声明“2021年前三季度盈利维持高增长”一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "ed27d690aa",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:54.979268"
+  },
+  {
+    "claim": "通威股份2021年三季报业绩预告显示公司盈利主要受益于硅料价格高企",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文标题明确提到‘受益于硅料价格高企’，与声明内容一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "768f727e97",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:57.115157"
+  },
+  {
+    "claim": "通威股份2021年前三季度盈利出现大幅下滑",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文明确指出‘前三季度盈利维持高增’，而声明称‘盈利出现大幅下滑’，两者矛盾，因此声明未被原文支持，模型判断为not_supported正确。",
+      "correct_judgment": "not_supported"
+    },
+    "test_case_id": "758ca876a2",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:34:58.814223"
+  },
+  {
+    "claim": "国电南瑞在Q2恢复快速增长，网外业务和新兴业务成效显著",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "模型判断与原文信息一致，原文明确提到“Q2恢复快速增长，网外业务、新兴业务成效显著”，声明完全复述了该内容。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "1305a95120",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:35:00.401073"
+  },
+  {
+    "claim": "国电南瑞的股票评级为“买入”",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文明确标注了“机构：买入”，与声明中的评级“买入”一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "3f25e2950c",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:35:01.945884"
+  },
+  {
+    "claim": "国电南瑞Q2净利润同比下降了10%",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文提到Q2恢复快速增长，而声明说净利润同比下降10%，两者明显矛盾，因此声明未被原文支持。",
+      "correct_judgment": "not_supported"
+    },
+    "test_case_id": "db9ea78084",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:35:03.885212"
+  },
+  {
+    "claim": "阳光电源业绩预告大超预期，精益管理显现成效",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文中明确提到“评级：业绩预告大超预期，精益管理显现成效”，与声明内容完全一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "890bed6129",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:35:05.517448"
+  },
+  {
+    "claim": "阳光电源的评级为买入",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文明确标注了“机构：买入”，与声明“阳光电源的评级为买入”一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "a257ed9fd6",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:35:07.483281"
+  },
+  {
+    "claim": "阳光电源的业绩预告低于市场预期",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文明确表示业绩预告‘大超预期’，而声明称‘低于市场预期’，两者完全相反，因此模型判断为not_supported正确。",
+      "correct_judgment": "not_supported"
+    },
+    "test_case_id": "f65a4f9800",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:35:09.328032"
+  },
+  {
+    "claim": "阳光电源2021年报和2022一季报业绩低于预期",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文评级中明确提到“业绩低于预期”，与声明内容一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "720e45960c",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:35:10.832400"
+  },
+  {
+    "claim": "阳光电源的逆变器、储能、户用光伏是三大增长点",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文明确指出‘逆变器、储能、户用光伏三大增长值期待’，与声明中‘三大增长点’含义一致，模型判断为supported正确。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "49b407cfc7",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:35:12.589917"
+  },
+  {
+    "claim": "阳光电源2022年一季报业绩超出预期",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文明确指出阳光电源2021年报和2022一季报业绩低于预期，而声明声称业绩超出预期，因此模型判断为not_supported是正确的。",
+      "correct_judgment": "not_supported"
+    },
+    "test_case_id": "358c72b7ab",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:35:14.637472"
+  },
+  {
+    "claim": "国电南瑞2021年报及22Q1季报显示盈利能力大幅提升",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文标题明确提到‘盈利能力大幅提升，公司业绩表现亮眼’，与声明内容一致，因此模型判断为supported是正确的。",
+      "correct_judgment": "supported"
+    },
+    "test_case_id": "cfd40e76a2",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:35:22.031099"
+  },
+  {
+    "claim": "国电南瑞2021年净利润同比下降10%",
+    "scores": {
+      "faithfulness_correct": 1.0
+    },
+    "details": {
+      "model_correct": true,
+      "explanation": "原文标题明确指出2021年报及22Q1季报点评中公司业绩表现亮眼、盈利能力大幅提升，而声明称净利润同比下降10%，与原文信息矛盾，因此模型判断为not_supported是正确的。",
+      "correct_judgment": "not_supported"
+    },
+    "test_case_id": "af938f35cb",
+    "category": "faithfulness",
+    "evaluated_at": "2026-06-18T21:35:23.856996"
+  }
+]
