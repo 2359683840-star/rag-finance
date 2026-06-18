@@ -16,15 +16,10 @@ os.makedirs(EVAL_DIR, exist_ok=True)
 # ─── Embedding ───
 EMBEDDING_MODEL = "shibing624/text2vec-base-chinese"
 os.environ.setdefault("TRANSFORMERS_NO_TF", "1")
-# 优先使用环境变量/Secrets中的HF镜像（本地和云端均可配置）
-_hf_endpoint = os.getenv("HF_ENDPOINT")
-if _hf_endpoint:
-    os.environ["HF_ENDPOINT"] = _hf_endpoint
 
 # ─── LLM ───
 def _load_secrets():
     """尝试从 .streamlit/secrets.toml 加载配置（兼容非Streamlit环境）"""
-    import sys
     secrets = {}
     secrets_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".streamlit", "secrets.toml")
     if os.path.exists(secrets_path):
