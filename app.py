@@ -106,9 +106,11 @@ page = st.sidebar.radio("导航", ["🏗️ 语料工坊", "📋 Benchmark管理
 
 st.sidebar.markdown("---")
 if vectordb is not None:
-    st.sidebar.success("✅ 向量库已就绪")
+    st.sidebar.success("✅ 向量语义检索已就绪")
+elif os.path.exists(os.path.join(os.path.dirname(__file__), "faiss_docs.json")):
+    st.sidebar.info("🔍 关键词检索模式（语义模型云端暂不可用）")
 else:
-    st.sidebar.warning("⚠️ 向量库未加载（云端Embedding模型待下载）\n\n语料/评测/报告页面仍可使用缓存数据")
+    st.sidebar.warning("⚠️ 检索不可用\n\n语料/评测/报告页面可正常使用")
 
 corpus_files = [f for f in os.listdir(CORPUS_DIR) if f.endswith(".jsonl")] if os.path.exists(CORPUS_DIR) else []
 benchmark_path = os.path.join(EVAL_DIR, "benchmark.json")
@@ -279,11 +281,12 @@ elif page == "📈 评测报告":
 elif page == "🔍 研报检索":
     st.title("🔍 研报检索 — RAG问答")
 
-    if vectordb is None:
+    has_search = vectordb is not None or os.path.exists(os.path.join(os.path.dirname(__file__), "faiss_docs.json"))
+    if not has_search:
         st.warning("""
-        **向量库未加载**
+        **检索功能不可用**
 
-        原因：Streamlit Cloud 无法下载 Embedding 模型（网络限制）。这不影响语料工坊、Benchmark、评测报告等页面。
+        原因：向量库与文档索引均未加载。这不影响语料工坊、Benchmark、评测报告等页面。
 
         如需完整RAG功能，请本地运行：
         ```
@@ -291,6 +294,8 @@ elif page == "🔍 研报检索":
         ```
         """)
     else:
+        if vectordb is None:
+            st.info("🔍 当前使用关键词检索模式（云端无法下载语义模型），检索精度略低于本地语义检索，LLM 分析与来源溯源功能正常")
         query = st.text_input("检索关键词", placeholder="固态电池产业化进展...")
         k = st.slider("返回数量", 5, 30, 12)
         if query:
