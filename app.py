@@ -73,11 +73,24 @@ def _keyword_search(query: str, k: int = 10) -> list[dict]:
     docs = _load_fallback_docs()
     if not docs:
         return []
-    keywords = query.lower().split()
+    q = query.lower()
     scored = []
     for d in docs:
         text = (d.get("content","") + d.get("org","") + d.get("title","") + d.get("stock","")).lower()
-        score = sum(1 for kw in keywords if kw in text)
+        # Char-level substring match for Chinese
+        score = 0
+        # Full query match
+        if q in text:
+            score += 10
+        # Single char match (for Chinese)
+        for ch in q:
+            if ch in text:
+                score += 1
+        # Multi-char n-gram matching
+        for n in [4, 3, 2]:
+            for i in range(len(q) - n + 1):
+                if q[i:i+n] in text:
+                    score += n * 2
         if score > 0:
             scored.append((score, d))
     scored.sort(key=lambda x: x[0], reverse=True)
