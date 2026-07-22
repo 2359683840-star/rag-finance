@@ -53,12 +53,35 @@ if "db_loaded" not in st.session_state:
 vectordb = st.session_state.db
 
 def search_reports(query: str, k: int = 10) -> list[dict]:
-    if vectordb is None:
+    if vectordb is not None:
+        results = vectordb.similarity_search(query, k=k)
+        return [{"content": r.page_content.strip(), "org": r.metadata.get("org",""),
+                 "title": r.metadata.get("title", r.metadata.get("report_title","")),
+                 "stock": r.metadata.get("stock","")} for r in results]
+    # Fallback: keyword search using faiss_docs.json
+    return _keyword_search(query, k)
+
+@st.cache_data
+def _load_fallback_docs():
+    path = os.path.join(os.path.dirname(__file__), "faiss_docs.json")
+    if not os.path.exists(path):
         return []
-    results = vectordb.similarity_search(query, k=k)
-    return [{"content": r.page_content.strip(), "org": r.metadata.get("org",""),
-             "title": r.metadata.get("title", r.metadata.get("report_title","")),
-             "stock": r.metadata.get("stock","")} for r in results]
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+def _keyword_search(query: str, k: int = 10) -> list[dict]:
+    docs = _load_fallback_docs()
+    if not docs:
+        return []
+    keywords = query.lower().split()
+    scored = []
+    for d in docs:
+        text = (d.get("content","") + d.get("org","") + d.get("title","") + d.get("stock","")).lower()
+        score = sum(1 for kw in keywords if kw in text)
+        if score > 0:
+            scored.append((score, d))
+    scored.sort(key=lambda x: x[0], reverse=True)
+    return [s[1] for s in scored[:k]]
 
 # ─── Data helpers ───
 def load_jsonl(path: str) -> list:
