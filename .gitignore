@@ -9,4 +9,4 @@ __pycache__/
 price_cache.json
 metadata_record.json
 reports_meta.json
-faiss_db/
+#faiss_db/
