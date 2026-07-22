@@ -1,6 +1,6 @@
 """
 金融LLM数据建设与评测平台
-— 对标 月之暗面 数据专家实习生-金融
+— 研报RAG · 语料构建 · Benchmark评测 · 产业分析
 """
 import os, json, time, hashlib
 from datetime import datetime
@@ -119,7 +119,6 @@ eval_results_path = os.path.join(EVAL_DIR, "eval_results.json")
 if corpus_files: st.sidebar.info(f"📝 语料: {len(corpus_files)} 个文件")
 if os.path.exists(benchmark_path): st.sidebar.info("📋 Benchmark已缓存")
 if os.path.exists(eval_results_path): st.sidebar.info("📊 评测结果已缓存")
-st.sidebar.caption("Moonshot.AI · 数据专家实习生")
 
 # ═══════════════════════════════════════
 # 语料工坊
@@ -279,40 +278,63 @@ elif page == "📈 评测报告":
 # 研报检索
 # ═══════════════════════════════════════
 elif page == "🔍 研报检索":
-    st.title("🔍 研报检索 — RAG问答")
+    st.title("🔍 研报检索 — RAG对话")
 
     has_search = vectordb is not None or os.path.exists(os.path.join(os.path.dirname(__file__), "faiss_docs.json"))
     if not has_search:
-        st.warning("""
-        **检索功能不可用**
-
-        原因：向量库与文档索引均未加载。这不影响语料工坊、Benchmark、评测报告等页面。
-
-        如需完整RAG功能，请本地运行：
-        ```
-        streamlit run app.py
-        ```
-        """)
+        st.warning("检索功能不可用：向量库与文档索引均未加载。")
     else:
         if vectordb is None:
-            st.info("🔍 当前使用关键词检索模式（云端无法下载语义模型），检索精度略低于本地语义检索，LLM 分析与来源溯源功能正常")
-        query = st.text_input("检索关键词", placeholder="固态电池产业化进展...")
-        k = st.slider("返回数量", 5, 30, 12)
-        if query:
-            results = search_reports(query, k=k)
-            st.info(f"检索到 {len(results)} 条")
-            orgs = Counter(r["org"] for r in results if r["org"])
-            if orgs:
-                st.bar_chart(pd.DataFrame({"机构": list(orgs.keys()), "数量": list(orgs.values())}).set_index("机构"))
-            rows = [{"机构": r["org"], "股票": r["stock"], "摘要": r["content"][:150]} for r in results]
-            st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
+            st.info("当前使用关键词检索模式（云端无法下载语义模型），检索精度略低，LLM 分析与来源溯源功能正常")
 
-            if st.button("🤖 RAG分析") and client:
-                ctx = "\n\n".join(f"[{r['org']}] {r['content'][:400]}" for r in results[:8])
-                prompt = f"""你是资深行业研究员。基于以下资料分析问题。分点阐述，引用来源，资料不足明示。
-资料：{ctx[:4000]}
-问题：{query}
+        # Chat history
+        if "rag_messages" not in st.session_state:
+            st.session_state.rag_messages = []
+
+        # Display chat history
+        for msg in st.session_state.rag_messages:
+            with st.chat_message(msg["role"]):
+                st.markdown(msg["content"])
+                if msg.get("sources"):
+                    with st.expander("📎 引用来源"):
+                        for s in msg["sources"]:
+                            st.caption(f"「{s['org']}」{s['title']}")
+
+        # Chat input
+        if prompt := st.chat_input("输入问题，基于研报知识库回答……"):
+            st.session_state.rag_messages.append({"role": "user", "content": prompt})
+            with st.chat_message("user"):
+                st.markdown(prompt)
+
+            with st.chat_message("assistant"):
+                with st.spinner("检索中……"):
+                    results = search_reports(prompt, k=8)
+                if not results:
+                    st.markdown("未找到相关研报内容，请尝试换一种问法。")
+                    st.session_state.rag_messages.append({"role": "assistant", "content": "未找到相关研报内容。", "sources": []})
+                else:
+                    ctx = "\n\n".join(f"[{r['org']}] {r['content'][:400]}" for r in results[:6])
+                    llm_prompt = f"""你是资深行业研究员。基于以下研报资料回答问题，分点阐述，引用来源，资料不足时明确说明。
+
+研报资料：
+{ctx[:4000]}
+
+问题：{prompt}
+
 分析："""
-                with st.spinner("分析中..."):
-                    resp = client.chat.completions.create(model=model_name, messages=[{"role":"user","content":prompt}])
-                st.markdown(resp.choices[0].message.content)
+                    if client:
+                        try:
+                            resp = client.chat.completions.create(model=model_name, messages=[{"role":"user","content":llm_prompt}])
+                            answer = resp.choices[0].message.content
+                        except Exception as e:
+                            answer = f"LLM 调用失败: {e}"
+                    else:
+                        answer = "API Key 未配置，无法生成分析。以下为检索到的相关内容：\n\n" + "\n".join(f"- [{r['org']}] {r['content'][:200]}" for r in results[:5])
+
+                    st.markdown(answer)
+                    sources = [{"org": r["org"], "title": r.get("title", ""), "content": r["content"][:200]} for r in results[:5]]
+                    st.session_state.rag_messages.append({"role": "assistant", "content": answer, "sources": sources})
+
+        if st.button("清空对话"):
+            st.session_state.rag_messages = []
+            st.rerun()
